@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Word Counter & Character Counter Tool - Free</title>
+<meta name="description" content="Instantly count words and characters with our free online Word Counter tool. Perfect for writers, SEO experts, and students!">
+<meta name="keywords" content="word counter, character counter, online word counter, text analysis, writing tools, SEO word count tool, content length checker">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            resize: vertical;
+        }
+        .counter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+        .counter-box {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        .counter-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .counter-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-reset {
+            background: #e74c3c;
+        }
+        .btn-reset:hover {
+            background: #c0392b;
+        }
+        .btn-copy {
+            background: #2ecc71;
+        }
+        .btn-copy:hover {
+            background: #27ae60;
+        }
+        .info-section {
+            margin-top: 40px;
+        }
+        .section-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            border-left: 4px solid #3498db;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .feature-card {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .feature-card h3 {
+            margin-top: 0;
+            color: #3498db;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+        @media (max-width: 768px) {
+            .counter-box {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Word Counter Tool</h1>
+        <p class="intro-text">Our free online word counter provides instant, accurate analysis of your text. Count words, characters (with and without spaces), sentences, and more. Essential for writers, students, and content creators who need precise text metrics.</p>
+        
+        <textarea id="text-input" placeholder="Type or paste your text here to analyze it..."></textarea>
+        
+        <div class="counter-container">
+            <div class="counter-box">
+                <div class="counter-label">Words</div>
+                <div class="counter-value" id="word-count">0</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-label">Characters</div>
+                <div class="counter-value" id="char-count">0</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-label">Characters (no spaces)</div>
+                <div class="counter-value" id="char-no-spaces-count">0</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-label">Sentences</div>
+                <div class="counter-value" id="sentence-count">0</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-label">Paragraphs</div>
+                <div class="counter-value" id="paragraph-count">0</div>
+            </div>
+        </div>
+        
+        <button class="btn" id="count-btn">Count Now</button>
+        <button class="btn btn-reset" id="reset-btn">Reset Text</button>
+        <button class="btn btn-copy" id="copy-btn">Copy Text</button>
+        
+        <div class="info-section">
+            <div class="section-box">
+                <h2>How to Use This Word Counter</h2>
+                <ol>
+                    <li><strong>Enter your text</strong> in the box above by typing or pasting</li>
+                    <li>All counts will update <strong>automatically in real-time</strong></li>
+                    <li>Use the <span class="highlight">Reset</span> button to clear all text</li>
+                    <li>Use the <span class="highlight">Copy</span> button to copy your text to clipboard</li>
+                    <li>Analyze the results to understand your text's composition</li>
+                </ol>
+            </div>
+            
+            <div class="section-box">
+                <h2>Why Use Our Word Counter?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>For Writers & Authors</h3>
+                        <ul>
+                            <li>Track novel/chapter length</li>
+                            <li>Meet publisher requirements</li>
+                            <li>Analyze sentence structure</li>
+                            <li>Balance paragraph length</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>For Students</h3>
+                        <ul>
+                            <li>Ensure essay meets word count</li>
+                            <li>Avoid assignment penalties</li>
+                            <li>Improve academic writing</li>
+                            <li>Analyze thesis complexity</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>For SEO & Content Marketing</h3>
+                        <ul>
+                            <li>Optimize blog post length</li>
+                            <li>Create meta descriptions</li>
+                            <li>Analyze content density</li>
+                            <li>Improve readability scores</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>For Social Media</h3>
+                        <ul>
+                            <li>Craft perfect tweets (280 chars)</li>
+                            <li>Optimize Facebook posts</li>
+                            <li>Create LinkedIn articles</li>
+                            <li>Measure Instagram captions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-box">
+                <h2>Word Count Standards by Content Type</h2>
+                <p>Different types of content typically require different word counts for optimal effectiveness:</p>
+                <ul>
+                    <li><strong>Blog Posts:</strong> 1,500-2,500 words for comprehensive articles</li>
+                    <li><strong>SEO Articles:</strong> 800-1,200 words for good ranking potential</li>
+                    <li><strong>Academic Papers:</strong> Varies by institution (often 1,000-5,000 words)</li>
+                    <li><strong>Short Stories:</strong> 1,000-7,500 words typically</li>
+                    <li><strong>Novels:</strong> 70,000-100,000 words for standard fiction</li>
+                    <li><strong>Tweets:</strong> Maximum 280 characters</li>
+                    <li><strong>Meta Descriptions:</strong> 150-160 characters recommended</li>
+                </ul>
+            </div>
+            
+            <div class="section-box">
+                <h2>Frequently Asked Questions</h2>
+                <h3>How does the word counter work?</h3>
+                <p>Our tool analyzes your text in real-time, splitting content by spaces to count words, by characters for length, and by punctuation marks for sentences. It provides the most accurate count available online.</p>
+                
+                <h3>What counts as a word?</h3>
+                <p>Any set of characters separated by spaces is counted as a word. This includes numbers and symbols when surrounded by spaces.</p>
+                
+                <h3>How are sentences counted?</h3>
+                <p>Sentences are identified by punctuation marks (. ! ?) followed by a space or new line. This provides a good estimate though complex formatting may affect accuracy.</p>
+                
+                <h3>Is there a limit to how much text I can analyze?</h3>
+                <p>No! Our word counter can handle documents of any length, from short tweets to full-length novels.</p>
+                
+                <h3>Is my text saved or stored?</h3>
+                <p>No, all processing happens in your browser. We never send your text to our servers or store it anywhere.</p>
+            </div>
+            
+            <div class="section-box">
+                <h2>Tips for Effective Writing</h2>
+                <ul>
+                    <li><strong>Vary sentence length</strong> - Mix short and long sentences for better rhythm</li>
+                    <li><strong>Watch paragraph size</strong> - 3-5 sentences is ideal for online content</li>
+                    <li><strong>Check readability</strong> - Aim for 8th-10th grade level for general audiences</li>
+                    <li><strong>Remove fluff</strong> - Eliminate unnecessary words to tighten your writing</li>
+                    <li><strong>Use active voice</strong> - Makes your writing more engaging and direct</li>
+                </ul>
+                <p>Our word counter helps you implement these best practices by giving you concrete metrics about your writing style.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('text-input');
+            const wordCount = document.getElementById('word-count');
+            const charCount = document.getElementById('char-count');
+            const charNoSpacesCount = document.getElementById('char-no-spaces-count');
+            const sentenceCount = document.getElementById('sentence-count');
+            const paragraphCount = document.getElementById('paragraph-count');
+            const countBtn = document.getElementById('count-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const copyBtn = document.getElementById('copy-btn');
+            
+            // Count when typing
+            textInput.addEventListener('input', updateCounts);
+            
+            // Count when button clicked
+            countBtn.addEventListener('click', updateCounts);
+            
+            // Reset button
+            resetBtn.addEventListener('click', function() {
+                textInput.value = '';
+                updateCounts();
+                textInput.focus();
+            });
+            
+            // Copy button
+            copyBtn.addEventListener('click', function() {
+                textInput.select();
+                document.execCommand('copy');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                }, 2000);
+            });
+            
+            function updateCounts() {
+                const text = textInput.value;
+                
+                // Word count (split by whitespace and filter out empty strings)
+                const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
+                wordCount.textContent = words.length;
+                
+                // Character count (including spaces)
+                charCount.textContent = text.length;
+                
+                // Character count (excluding spaces)
+                charNoSpacesCount.textContent = text.replace(/\s+/g, '').length;
+                
+                // Sentence count (split by .!? and filter out empty strings)
+                const sentences = text.trim() === '' ? [] : text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+                sentenceCount.textContent = sentences.length;
+                
+                // Paragraph count (split by newlines and filter out empty strings)
+                const paragraphs = text.trim() === '' ? [] : text.split(/\n+/).filter(p => p.trim().length > 0);
+                paragraphCount.textContent = paragraphs.length;
+            }
+            
+            // Initialize counts
+            updateCounts();
+        });
+    </script>
+</body>
+</html>
