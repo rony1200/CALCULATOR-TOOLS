@@ -20,22 +20,24 @@ It brings together useful day-to-day tools like:
 *(Replace with your actual URL or GitHub Pages link)*
 
 ## 📂 Project Structure
+
+```
 micro-tools-hub/
+├── index.html                Main homepage listing all tools
+├── age-calculator.html       Calculate exact age
+├── bmi-calculator.html       Check BMI and category
+├── loan-emi-calculator.html  Compute loan EMI
+├── word-counter.html         Count words and characters
 │
-├── index.html                🏠 Main homepage listing all tools
+├── manifest.json             PWA manifest file
+├── service-worker.js         Enables offline caching (PWA)
+├── style.css                 Common styling file
+├── dark-mode-toggle.js       JavaScript to toggle dark mode
+├── analytics.js              Google Analytics integration
 │
-├── age-calculator.html       🎂 Calculate exact age
-├── bmi-calculator.html       ⚖️ Check BMI and category
-├── loan-emi-calculator.html  💰 Compute loan EMI
-├── word-counter.html         ✍️ Count words and characters
-│
-├── manifest.json             📱 PWA manifest file
-├── service-worker.js         🔄 Enables offline caching (PWA)
-├── style.css                 🎨 Common styling file
-├── dark-mode-toggle.js       🌙 JavaScript to toggle dark mode
-├── analytics.js              📊 Google Analytics integration
-│
-└── README.md                 📖 Project overview and documentation
+└── README.md                 Project overview and documentation
+```
+
 
 
 ## 🌟 Features
