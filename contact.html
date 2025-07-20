@@ -1,10 +1,94 @@
-<h1>Contact Us</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <meta name="description" content="Use this form to report bugs or errors on Micro Tools Hub tools." />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      max-width: 700px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .success-message {
+      padding: 15px;
+      background-color: #e6ffe6;
+      color: #006600;
+      border: 1px solid #b2d8b2;
+      border-radius: 4px;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
 
-<p>We’d love to hear from you! Whether you have questions, suggestions, or partnership opportunities, please don’t hesitate to reach out.</p>
+  <h1>Report a Bug or Error</h1>
 
-<ul>
-  <li><strong>Email:</strong> <a href="mailto:rony242002@gmail.com">rony242002@gmail.com</a></li>
-  <li><strong>GitHub:</strong> <a href="https://github.com/rony1200" target="_blank">rony1200</a></li>
-</ul>
+  <p>If you've found something not working right, we'd appreciate it if you reported it here. Include as much detail as possible to help us fix the issue quickly.</p>
 
-<p>We typically respond within 1-2 business days. Thank you for your interest in Micro Tools Hub.</p>
+  <form id="bugReportForm">
+    <label for="tool">Tool Name *</label>
+    <input type="text" id="tool" name="tool" placeholder="e.g., JSON Formatter" required />
+
+    <label for="description">Describe the Problem *</label>
+    <textarea id="description" name="description" rows="5" placeholder="What happened? What were you trying to do?" required></textarea>
+
+    <label for="device">Your Device or Browser (optional)</label>
+    <input type="text" id="device" name="device" placeholder="e.g., Firefox on Windows 10" />
+
+    <label for="screenshot">Screenshot URL (optional)</label>
+    <input type="url" id="screenshot" name="screenshot" placeholder="Paste image link here if any" />
+
+    <button type="submit">Submit Report</button>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    ✅ Thank you! Your bug report has been received.
+  </div>
+
+  <script>
+    const form = document.getElementById('bugReportForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent form from reloading the page
+
+      // Simulate submission (you can later add email API or server code here)
+      form.reset();
+      successMessage.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
